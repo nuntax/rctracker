@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>RC Tracker</title>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link href="./output.css" rel="stylesheet">
+    <link href="../dist/output.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -16,6 +15,7 @@
         min-height: 100%;
         min-width: 100%;
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
     }
@@ -25,10 +25,34 @@
     th{
         text-align: left;
     }
+    #search{
+        justify-self: flex-start;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+        size: 2rem;
+        
+    }
+    input{
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        
+    }
+    button{
+        padding-right: 0.5rem;
+        text-align: center;
+        padding-left: 0.5rem;
+    }
 </style>
 
 <body class="bg-neutral-900 text-zinc-300">
-    <div class="bg-neutral-800 p-3 px-16 rounded-md drop-shadow-lg font-mono">
+    
+    <div class="bg-neutral-800 p-3 px-16 drop-shadow-lg font-mono">
+        <div id="search" class="">
+            <input type="text" class="bg-neutral-700 border-rose-600 rounded-md"><button id="submit"class="text-neutral-100 bg-rose-600 font-mono rounded-md">Search</button>
+        </div>
         <h1 class="text-zinc-300 text-4xl" id="usernameheader"></h1>
         <table class="table-auto">
             <tr>
@@ -106,6 +130,10 @@
             $("table").append("<tr><td>"+key+"</td><td>"+value+"</td></tr>");
         }
     }
+    let url2 = window.location.href.split('?')[0];
+    $( "#submit" ).click(function() {
+        window.location.href = url2+"?username="+$("#search input").val();
+    });
     
 
 
