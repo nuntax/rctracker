@@ -120,6 +120,7 @@
   "Matches on Mexico": stats["progressionEnvironmentPlayedSpecific.map.Arena_Mexico"].value,
   "Hours in Casual": (stats["progressionPlaytimeGamemode.gamemodeid.QuickMatch"].value/3600).toFixed(2),
   "Hours in Ranked": (stats["progressionPlaytimeGamemode.gamemodeid.Ranked"].value/3600).toFixed(2),
+  "Total playtime": (stats.playtimeAbsolute.value/3600).toFixed(2), //includes just having the game open 
   "Fans": stats.progressionTotalFans.value     
     };
 
@@ -154,13 +155,5 @@
             window.location.href = url2+"?username="+$("#search input").val();
         }
     }
-    
-
-
-
-
-
-    
-
     </script>
 </html>
