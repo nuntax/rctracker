@@ -50,6 +50,7 @@
 <body class="bg-neutral-900 text-zinc-300">
     
     <div class="bg-neutral-800 p-3 px-16 drop-shadow-lg font-mono">
+        <div class="text-xs">Contact me: nuntax#4334</div>
         <div id="search" class="">
             <input type="text" class="bg-neutral-700 border-rose-600 rounded-md"><button id="submit"class="text-neutral-100 bg-rose-600 font-mono rounded-md">Search</button>
         </div>
@@ -78,6 +79,9 @@
         console.log(jsonr);
         let stats = jsonr.profiles.stats;
         console.log(stats)
+        if(stats["MatchPlayedGamemode.gamemode.QuickMatch"].value == 0){
+            alert("No stats found for this user. Check the spelling and try again.");
+        }
         let use = {
   "Casual Matches": stats["MatchPlayedGamemode.gamemode.QuickMatch"].value,
   "Ranked Matches": stats["MatchPlayedGamemode.gamemode.Ranked"].value,
@@ -118,6 +122,7 @@
   "Hours in Ranked": (stats["progressionPlaytimeGamemode.gamemodeid.Ranked"].value/3600).toFixed(2),
   "Fans": stats.progressionTotalFans.value     
     };
+
     display(use);
     });
     function display(stats){
@@ -132,7 +137,12 @@
     }
     let url2 = window.location.href.split('?')[0];
     $( "#submit" ).click(function() {
-        window.location.href = url2+"?username="+$("#search input").val();
+        if($("#search input").val() == ""){
+            alert("Please enter a username.");
+        }
+        else{
+            window.location.href = url2+"?username="+$("#search input").val();
+        }
     });
     
 
