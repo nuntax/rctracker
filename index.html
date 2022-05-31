@@ -136,14 +136,24 @@
         }
     }
     let url2 = window.location.href.split('?')[0];
+    $(document).keypress(function(event){
+        var keycode = (event.keyCode ? event.keyCode : event.which);
+        if(keycode == '13'){
+            submitted(); 
+        }
+    });
+    ;
     $( "#submit" ).click(function() {
+        submitted();
+    })
+    function submitted(){
         if($("#search input").val() == ""){
             alert("Please enter a username.");
         }
         else{
             window.location.href = url2+"?username="+$("#search input").val();
         }
-    });
+    }
     
 
 
