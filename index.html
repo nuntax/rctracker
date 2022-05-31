@@ -83,6 +83,7 @@
             alert("No stats found for this user. Check the spelling and try again.");
         }
         let use = {
+  "MMR": stats.tsrmeandef.value,
   "Casual Matches": stats["MatchPlayedGamemode.gamemode.QuickMatch"].value,
   "Ranked Matches": stats["MatchPlayedGamemode.gamemode.Ranked"].value,
   "Draws": stats["MatchResult.endreason.Draw"].value,
