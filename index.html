@@ -20,7 +20,9 @@
         align-items: center;
     }
     td{
-        padding-right:4rem;
+        padding-right: 4vw;
+        border-top: 1px solid #404040;
+        border-bottom: 1px solid #404040;
     }
     th{
         text-align: left;
@@ -55,7 +57,7 @@
             <input type="text" class="bg-neutral-700 border-rose-600 rounded-md"><button id="submit"class="text-neutral-100 bg-rose-600 font-mono rounded-md">Search</button>
         </div>
         <h1 class="text-zinc-300 text-4xl" id="usernameheader"></h1>
-        <table class="table-auto">
+        <table class="table-auto border-collapse">
             <tr>
                 <th>Attribute</th>
                 <th>Value</th>
@@ -72,7 +74,7 @@
     var query = window.location.search.substring(1);
     query = query.replace("username=", "");
     if(query == ""){
-        $( "#usernameheader" ).text("Enter a username to search for.");
+        $( "#usernameheader" ).text("Enter a username\n to search for.");
         $('.table-auto').attr('hidden', true);
     }
     else{
@@ -145,7 +147,7 @@
             let key = Object.keys(stats)[i];
             let value = stats[key];
             console.log(key+" : "+value);
-            $("table").append("<tr><td>"+key+"</td><td>"+value+"</td></tr>");
+            $("table").append('<tr><td>'+key+'</td><td>'+value+'</td></tr>');
         }
     }
     let url2 = window.location.href.split('?')[0];
