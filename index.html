@@ -65,16 +65,22 @@
 </body>
 <script>
     window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-MDKG6MSR3F');
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-MDKG6MSR3F');
+    
     var query = window.location.search.substring(1);
     query = query.replace("username=", "");
-    $( "#usernameheader" ).text("Stats from: "+query);
+    if(query == ""){
+        $( "#usernameheader" ).text("Enter a username to search for.");
+        $('.table-auto').attr('hidden', true);
+    }
+    else{
+        $( "#usernameheader" ).text("Stats from: "+query);
+    }
     console.log(query);
     let url = "https://rollerapi.herokuapp.com/stats?username="+query;
-    
+
     $.get(url, function( data ) {
         console.log(data);
         data = data.replace("[", '');
