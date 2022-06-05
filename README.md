@@ -1,5 +1,6 @@
-# rctracker frontend
-backend code is still private because i want to add a few features
-dont judge my frontend skills please.
+# RCTracker 
 
-also the backend is not made for heavy load since its hosted for free on heroku and ubi will probably rate limit me
+
+Frontend for a rc stats lookup service i built.
+Backend ist still full with private API keys, so no source release yet. 
+Feel free to give me some feedback. 
