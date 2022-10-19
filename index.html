@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -40,6 +41,15 @@
         size: 2rem;
         
     }
+    #header{
+        justify-self: flex-start;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+        size: 2rem;
+    }
     input{
         padding-top: 0.5rem;
         padding-bottom: 0.5rem;
@@ -50,12 +60,24 @@
         text-align: center;
         padding-left: 0.5rem;
     }
+    a{
+        text-decoration: underline;
+        cursor: pointer;
+    }
 </style>
+<script>function donate(){
+    //if last character of window.location is /, remove it
 
+    window.open("https://nuntax.tech/donate.html");
+}</script>
 <body class="bg-neutral-900 text-zinc-300">
     
     <div class="bg-neutral-800 p-3 px-16 drop-shadow-lg font-mono">
-        <div class="text-xs">Contact me: nuntax#4334</div>
+        <div id="header">
+            <div class="text-s">Contact me: nuntax#4334</div>
+            <div class="text-s text-rose-600" id="donate" onclick="donate()"><a>Donate</a></div>
+        </div>
+        
         <div id="search" class="">
             <input type="text" class="bg-neutral-700 border-rose-600 rounded-md"><button id="submit"class="text-neutral-100 bg-rose-600 font-mono rounded-md">Search</button>
         </div>
